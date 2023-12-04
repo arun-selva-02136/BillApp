@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static "css/product/profile.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4723418bde.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-xxl">
+        <div class="row">
+            <section class="col-sm-10 mx-auto my-auto Profile-header">
+                <h3>Profile</h3>
+                <h6>Updates Your Logo and Personal Details</h6>
+            </section>
+            <div class="col-sm-12 Profile-box">
+                <div class="col-sm-10 user-profile pb-5">
+                    <!-- Profile Box Header -->
+                    <div class="col-sm-12 logo-header" id="logoHeader">
+                        <div class="col-sm-12 logo-img">
+                            <img src="{% static 'images/cloud_logo.png' %}" alt="" id="logo" style="width: 8rem;height: 4rem;background: transparent;">
+                        </div>
+                        <div class="col-sm-12 edit-btn">
+                            <div class="col d-flex align-items-center justify-content-end">
+                                <input type="file" name="" id="edit" style="display: none;">
+                                <label for="edit" id="logo-edit"><i id="Profile-icon" class="fa-solid fa-pen-to-square" style="color: white;"></i></label>
+                            </div>
+                            <i id="colorPickerIcon" class="fa-solid fa-fill-drip" style="color: #ffffff;"></i>
+                                <input type="color" id="colorPicker" style="display: none;">
+                        </div>
+                    </div>
+                    <!-- Profile Box Header -->
+                    <!-- User Information -->
+                    <div class="col-12 user-info">
+                        <div class="col d-sm-flex d-block">
+                            <div class="col-md-3 user-img">
+                                <div class="col-2 Profile-img" id="Profile-image">
+                                    <img src="{% static 'images/img_1.jpg' %}" alt="" id="photo">
+                                    <input type="file" id="file">
+                                    <label for="file" id="uploadBtn"><i class="fa-solid fa-user-plus"
+                                            style="color: #ffffff;"></i></label>
+                                </div>
+                            </div>
+                            <div class="col-md-10 Profile-add">
+                                <div class="col-8">
+                                    <h4>Cloud Garage</h4>
+                                    <h6>Cloud11@gmail.com</h6>
+                                    <h6>1234567890</h6>
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-success">Save</button>
+                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- User Information -->
+                    <!-- User Inputs Form-->
+                    <div class="col-sm-12 Profile-form">
+                        <form class="row g-3 needs-validation" method="post"  novalidate>
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">First name</label>
+                                <input type="text" class="form-control w-75" id="validationCustom01" value="Cloud"
+                                    placeholder="Cloud" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">Last name</label>
+                                <input type="text" class="form-control w-75" id="validationCustom02" value="Garage"
+                                    placeholder="grage" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">Email</label>
+                                <input type="email" class="form-control w-75" id="validationCustom03"
+                                    placeholder="Cloud01@gmail.com" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Email.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">Phone Number</label>
+                                <input type="number" class="form-control w-75" id="validationCustom03"
+                                    placeholder="1234567890" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Number.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-success mt-3" type="submit">Submit</button>
+                                <button class="btn btn-danger mt-3" type="submit">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- User Inputs Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/product/profile.js'  %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

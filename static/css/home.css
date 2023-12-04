@@ -1,0 +1,484 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=PT+Serif+Caption:ital@0;1&family=Poppins:wght@400;500;600;700;800&family=Quando&family=Righteous&family=Roboto:wght@300;400;500;700&family=Yatra+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/riot-ton');
+ .form-control {  
+  -webkit-box-shadow: none!important;
+
+} 
+
+.border-primary{
+  border-color: #F00 !important;
+}
+
+                
+
+.vl{
+  border-left: 8px solid green;
+  height: 25px; 
+  padding-left: -30px;
+
+}
+.vl p{
+  margin-block-start:0px !important;
+  padding-left: -30px;
+}
+header button{
+  border-radius: 6px;
+  background: #FFF;
+  color: #FF4C00;
+font-family: Poppins;
+font-size: 17px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-color: #FFF;
+padding: 4px 10px;
+margin: 5px;
+}
+.container-xxl{
+  overflow-x: hidden;
+  margin: 0;
+  --bs-gutter-x: 0 !important;
+  --bs-gutter-y: 0 !important;
+}
+html{
+  overflow-x: hidden;
+ margin: 0;
+}
+
+header{
+    width: 100%; height:540px; background-image: url(images/sliderimg.png);
+  
+   background-size: cover;
+   background-repeat: no-repeat;
+   text-decoration: none;
+}
+
+.blackhead{
+  height: 30px;
+  width: 100%;
+  background-color: #000;
+
+  
+}
+.blackhead p{
+  color: #FFF;
+font-family: Roboto;
+font-size: 7px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+.blackhead a{
+  color: #da1212;
+font-family: Poppins;
+font-size: 8px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-decoration: none;
+
+}
+.logo img{
+  height: 33px;
+
+}
+.parent1{
+    position: relative;
+}
+.sliderhome{
+    position: absolute;
+    z-index: 1;
+    width:100%;
+}
+.sliderchild{
+    position: absolute;
+    z-index: 2;
+}
+
+.profile img{
+    height: 30px;
+    width: 30px;
+    margin-right:28px
+    
+}
+
+.sellticket img{
+    height: 45px;
+    width: 110px;
+}
+
+.ticketimg{
+    height: 45px;
+    width: 110px;
+}
+
+
+
+
+ .form-group .formbody{ 
+    border-radius: 14px;
+    margin: none;
+ 
+    background: #ffffff60;
+}
+
+
+.search form img{
+  height: 24px;
+  width: 29px;
+}
+
+.search form input{
+  background: #ffffff00 !important;
+ color: rgba(255, 255, 255, 0.789) !important;
+font-size: 18px;
+font-family: Roboto;
+font-weight: 400;
+word-wrap: break-word;
+outline: none;
+border:none;
+margin: 0px;
+padding: 0px;
+
+
+}
+.search p{
+color: #288ce9;
+font-size: 16px;
+font-family: Roboto;
+font-weight: 300;
+word-wrap: break-word;
+
+
+}
+.carousel-indicators li {
+    width: 15px!important;
+    height: 15px!important;
+    border-radius: 50%;
+    
+  }
+  .carousel{
+
+    background-color: aliceblue;
+  }
+  .carousel-indicators [data-bs-target]{
+    background-color: #004687!important;
+    color:#ffff;
+  }
+nav{
+  background-color:transparent;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 10px;
+  
+}
+nav .navbar a{
+  text-decoration: none;
+}
+nav p{
+  color: #434040;
+font-family: Roboto;
+font-size: 6px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-decoration-line: underline;
+}
+  nav .nav-link{
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 800;
+    justify-content: end !important;
+    
+  }
+  .nav2 li{
+    border-radius: 8px;
+    background: #FFF;
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 800;
+    
+    position: sticky !important;
+  }
+  .navbar-collapse {
+    flex-grow: 0 !important;
+  }
+nav .nav-link:hover{
+  background-color: #004687;
+  color: aliceblue;
+}
+
+.nav2 li{
+  list-style-type: none;
+  margin: 5px;
+ 
+ padding:5px 25px 5px 25px;
+ border-radius: 5px;
+
+font-family: Righteous;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+.nav2 a{
+  text-decoration: none;
+ color: #2C2929;
+}
+  .textrow1{
+    padding-top: 50px;
+   
+  }
+
+  .textrow1 h3{
+    color: black;
+    font-size: 26px;
+    font-family: Poppins;
+    font-weight: 800;
+    text-align: center;
+
+  }
+  .textrow1 h3 span{
+    color: #0FF;
+    font-family: Righteous;
+   
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   
+
+  }
+
+  .textrow2{
+    color: black;
+font-size: 17em;
+font-family: Roboto;
+font-weight: 500;
+word-wrap: break-word;
+  }
+
+
+
+ 
+   .ticketcollecting{
+
+    border-bottom: 3px solid #00468747;
+   }
+ 
+  .international h3{
+    color: #FF4C00;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+  }
+  .findticket{
+ 
+    background-color: #2C2929;
+  }
+
+  .international .card1 {
+ background-image: url(images/theater.png);
+ background-position: center; 
+  }
+  .international .card2 {
+ background-image: url(images/sports.png);
+ background-position: center; 
+  }
+  .international .card3 {
+ background-image: url(images/entertainment.png);
+ background-position: center; 
+  }
+  .international .card4 {
+ background-image: url(images/festival.png);
+
+ background-position: bottom;
+  }
+  .availabletickets{
+    background-image: url(images/availableticketsbg.png);height: 221px;
+    align-items: end;
+  }
+
+  .availabletickets li {
+    list-style-type: none;
+    position: relative;    /* It's needed for setting position to absolute in the next rule. */
+}
+
+
+  .availabletickets p{
+   
+    color: #1D1D1D;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+  }
+
+
+
+
+
+.stayuptodate h4{
+margin-top: 20px;
+margin-bottom: 20px;
+color: #e20505;
+font-family: Quando;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+.stayuptodate button{
+  border-radius: 14px 4px 2px 14px;
+  background: #F00 !important;
+
+}
+.share
+{
+  height: 120px;
+width: 60%;
+margin-left: 50px;
+margin-right: 40px;
+margin-top: 80px;
+margin-bottom: 10px;
+background-color: #FF4C00;
+padding:20px;
+border-radius: 8px;
+}
+.locationimg{
+  background-image: url(images/locationimg.png);height:223;
+}
+
+.locationimg button{
+  border-radius: 8px;
+background: #FFF;
+color: #FF4C00;
+font-family: Poppins;
+font-size: 23px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+padding: 5px 40px;
+border: none;
+}
+
+.help input {
+  border-color: 2px solid #FF0000 !important;
+}
+
+.help button{
+  background-color: #FF0000;
+  color: #FFF;
+font-family: Inter;
+font-size: 25px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+ .help h4{
+  color: #1D1D1D;
+font-family: Poppins;
+font-size: 25px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+ }
+
+.contact {
+  color: #1D1D1D;
+font-family: Poppins;
+font-size: 25px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.contact a{
+  text-decoration: none;
+}
+.contact h3{
+  color: #000;
+font-family: Roboto;
+font-size: 21px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.contact p{
+  color: #2C2929;
+font-family: Roboto;
+font-size: 13px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+text-decoration-line: none;
+}
+.border{
+  border-color: 1px solid black !important;
+}
+
+  footer{
+    color:#ffff;
+    background-color: #2C2929;
+  }
+
+   footer .copyright{
+    color: #FFF;
+font-family: Roboto;
+font-size: 8px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+
+  }
+
+ footer .morepopular{
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+ }
+
+ footer .StayUptoDate{
+color: #FFF;
+font-family: Roboto Slab;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+ }
+  footer .dropdown{
+    background-color: rgb(255, 255, 255);
+  }
+  .circle{
+    display:grid;
+    grid-template-columns: 30px  30px  30px    ;
+    grid-template-rows:  30px  ;
+    gap: 10px;
+  align-items: center;
+  justify-content: center;
+  
+    /* margin-top: 50px;
+    margin-left: 30px; */
+  }
+  .circle .round {
+     margin: 3px;
+     height: 30px;
+     width: 33px;
+    
+     background-color:rgb(255, 255, 255);
+     border-radius: 60px 60px;
+     /* display: inline-block; */
+     border:  1px solid rgba(115, 115, 251, 0.356);
+     
+     
+   }
+  

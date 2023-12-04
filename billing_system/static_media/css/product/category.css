@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+* {
+  color: #3e3e3e;
+}
+body {
+  color: #3e3e3e;
+  background-color: #f6f6f6;
+  overflow-x: hidden;
+}
+
+header h4 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 25px;
+}
+header p {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+}
+p {
+  margin-bottom: 0px !important;
+}
+.borderr {
+  border: 2px solid #d5d3d3;
+}
+
+.table > :not(caption) > * > * {
+  background-color: #f6f6f6 !important;
+}
+th {
+  color: #3e3e3e !important;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+td {
+  color: #3e3e3ec1 !important;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+a img {
+  height: 29px;
+  width: 27px;
+  margin: 5px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  display: none !important;
+}
+
+/* input.search {
+  height: 36px;
+  width: 322px;
+  border: none !important;
+
+  background-color: #e8e8e8 !important;
+  font-size: medium;
+  font-weight: 600;
+  border-radius: 12px;
+  display: block;
+  padding: 9px 4px 9px 70px;
+} */
+
+img {
+  height: 30px;
+  width: 30px;
+}
+button img,
+td img {
+  height: 15px;
+  width: 15px;
+}
+
+input[type="checkbox"] {
+  height: 17px;
+  width: 17px;
+}
+.table-button {
+  border: none;
+  background-color: transparent;
+}
+
+select {
+  width: 12%;
+}
+
+.show1,
+.pageno {
+  color: #3e3e3e !important;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 15px;
+}
+
+input::-webkit-input-placeholder {
+  color: #c5c2c2 !important;
+}
+
+.form-control,
+.form-select {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #707070;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+  border: none !important;
+
+  background-color: #e8e8e8 !important;
+}
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}

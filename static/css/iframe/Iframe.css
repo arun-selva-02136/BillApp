@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital,wght@1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: gray;
+}
+
+
+/* Navbar Design*/
+header nav{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 4.5rem;
+}
+.Nav-logo{
+    border-right: 1px solid gray;
+}
+/* Navbar Dearch Bar */
+.form{
+
+    position: relative;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:18px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.form-input{
+
+    height: 50px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+
+    box-shadow: none;
+    border:none;
+}
+.user-icon{
+    background-color: blue;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 3rem;
+    padding-left: 0.6rem;
+}
+/* Navbar Dearch Bar */
+/* Navbar Design*/
+
+/* Iframe Design */
+.overall{
+    height: 45rem;
+}
+/* .navbar {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+} */
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 235px;
+        height: 50rem;
+    border-right: 1px solid gray;
+    background-color: #f8f9fa;
+    /* padding: 20px; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.3s ease;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+}
+
+aside .nav-link {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+aside .nav-link:hover, .nav-link.active {
+    background-color: #c8d9ff;
+    border-radius: 0.5rem;
+}
+
+.main-content {
+    flex: 1;
+    padding-left:5px ;
+    transition: margin-left 0.3s ease;
+}
+
+iframe {
+    border: none;
+    height: 50rem;
+}
+.nav-item button{
+    color: gray;
+    font-size: 15px;
+    width: 12.5rem;
+    margin: 5px auto;
+    padding-left: 13px;
+}
+
+/* sidebar Arrow icon */
+#sidebarToggle{
+    position: relative;
+    left: 4rem;
+    background-color: #c8d9ff;
+    padding: 0 9px;
+    border-radius: 3rem;
+}
+.Company-logo img{
+    width: 6rem;
+    height: 3rem;
+}
+.footer p{
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    padding: 5.5px 0;
+    background-color: #4267b2;
+    position: relative;
+    top: 1rem;
+}
+/* sidebar Arrow icon */
+/* Iframe Design */

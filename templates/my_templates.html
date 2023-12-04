@@ -1,0 +1,21 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Lists</title>
+</head>
+<body>
+    <h1>Product Lists</h1>
+    
+
+    <script>
+        // Access Django data in JavaScript
+        var productListsFromDjango = {{ product_lists|safe }};
+        
+        // Now you can use productListsFromDjango in your JavaScript code
+        console.log(productListsFromDjango);
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .bill-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bill-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bill-details {
+            margin-bottom: 20px;
+        }
+
+        .bill-items {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .bill-items th, .bill-items td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .bill-total {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="bill-container">
+        <div class="bill-header">
+            <h2>Invoice</h2>
+        </div>
+        <div class="bill-details">
+            <p><strong>Customer Name:</strong> Vignesh</p>
+            <!-- Add other bill details here -->
+        </div>
+        <table class="bill-items">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                        <td>{{ product.product_id }}</td>
+                        {% comment %} <td>{{ product.quantity }}</td> {% endcomment %}
+                        <td> {{product.quantity}} </td>
+                        <td>{{ product.unit }}</td>
+                        <td>{{ product.total_amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="bill-total">
+            <p><strong>Total:</strong> {{ total_purcheas_amount }}</p>
+        </div>
+    </div>
+</body>
+</html>

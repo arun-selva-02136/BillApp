@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales List</title>
+</head>
+<body>
+    <h1>Sales List</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>HSN Code</th>
+                <th>Quantity</th>
+                <th>SGST No</th>
+                <th>CGST No</th>
+                <th>Amount</th>
+                <th>Discount Amount</th>
+                <th>Total</th>
+                <th>Payment Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales_data %}
+                <tr>
+                    <td>{{ sale.aproduct_name }}</td>
+                    <td>{{ sale.hsn_code }}</td>
+                    <td>{{ sale.quantity }}</td>
+                    <td>{{ sale.sgst_no }}</td>
+                    <td>{{ sale.cgst_no }}</td>
+                    <td>{{ sale.amount }}</td>
+                    <td>{{ sale.discount_amount }}</td>
+                    <td>{{ sale.total }}</td>
+                    <td>{{ sale.payment_type }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'add_sales' %}">Add New Sale</a>
+</body>
+</html>
+    

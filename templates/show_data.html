@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Data</title>
+</head>
+<body>
+    <h1>Customer Data</h1>
+    <ul>
+        {% for customer in customers %}
+            <li>{{ customer.customer_name }} - {{ customer.customer_phone_number }} - {{ customer.customer_created }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Sales Data</h1>
+    <ul>
+        {% for sale in sales %}
+            <li>{{ sale.product_name }} - {{ sale.customer_name }} - {{ sale.date }} {{ sale.time }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'input_customer' %}">Input Customer Data</a>
+    {% comment %} <a href="{% url 'input_sales' %}">Input Sales Data</a> {% endcomment %}
+</body>
+</html>

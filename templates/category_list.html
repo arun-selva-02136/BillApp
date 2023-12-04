@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}  
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>product list</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/87419a6b8b.js"
+      crossorigin="anonymous"
+    ></script>
+    {% comment %} <link rel="stylesheet" href="category.css" /> {% endcomment %}
+    <link rel="stylesheet" href="{%  static 'css/product/category.css' %}" />
+    <style>
+      .pagination button {
+        color: #3e3e3e;
+        background-color: white;
+        border: 1px solid #3e3e3e;
+        padding: auto;
+        margin: 0 9px;
+        cursor: pointer;
+      }
+
+      .pagination input {
+        width: 40px;
+        padding: 8px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid p-4">
+      <header class="col-12 d-flex mb-3">
+        <div class="col-6">
+          <h4>Category List</h4>
+          <p>Manage Your Category</p>
+        </div>
+        <div class="col-6 text-end">
+          {% comment %} <a href="../addproduct/addproduct.html"> {% endcomment %}
+            <a href="{% url 'category_create' %}">
+
+
+            <button
+              class="btn m-3"
+              style="background-color: #0040cc; color: white"
+            >
+              +Add New Category
+            </button>
+          </a>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="table-responsive borderr pt-3">
+          <table
+            class="table table-borderless mt32 customers-list"
+            id="myTable"
+          >
+            <div class="col-12 d-flex icons mb-4">
+              <div class="col-6 d-flex align-content-center">
+                <img
+                  src="{% static 'images/filter.svg' %}"
+                  style="height: 24px; width: 24px"
+                  class="ms-4 my-auto"
+                  alt="filter"
+                />
+                <div class="form-group has-search ms-2">
+                  <span
+                    class="fa fa-search search-input form-control-feedback"
+                  ></span>
+                  <input
+                    id="myInput"
+                    oninput="searchTable()"
+                    type="search"
+                    class="form-control search-input"
+                    placeholder="Search"
+                    data-table="customers-list"
+                  />
+                </div>
+              </div>
+              <div class="col-6 text-end pe-5 me-2">
+                <span class="pe-4">
+                  {% comment %} <a href="" {% endcomment %}
+                  <a href="{% url 'category_generate_excel' %}" target="_blank"
+
+                    ><img
+                      src="{% static 'images/excelicon.png' %}"
+                      alt="excel"
+                  /></a>
+                  <a href="{% url 'category_generate_pdf' %}" target="_blank"
+
+                    ><img src="{% static 'images/pdf.svg' %}" alt="pdf"
+                  /></a>
+                  <a href=""
+                    ><img
+                      src="{% static 'images/printer.svg' %}"
+                      alt="print"
+                  /></a>
+                </span>
+                <span>
+                  <a href=""
+                    ><img src="{% static 'images/edit.svg' %}" alt="edit"
+                  /></a>
+                  <a  onclick = "deleteSelectedRows()"
+                    ><img
+                      src="{% static 'images/delete.svg' %}"
+                      alt="delete"
+                  /></a>
+                </span>
+              </div>
+            </div>
+            <thead>
+              <tr>
+                <th>
+                  <label> <input type="checkbox" id="selectall" onclick="selectAllRows()"/></label>
+                </th>
+                <th>Category Name</th>
+                <th>Category Code</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Action</th>
+                <th style="display:none" >id</th>
+              </tr>
+            </thead>
+            <tbody id="tablebody">
+                {% for category_info in categories_with_qty %}
+              <tr>
+                <td>
+                  <input type="checkbox" class="mt-1" name="funnel[]" />
+                </td>
+                <td>
+                 {% comment %} <img src="Screenshot.png" class="me-3" alt="" /> {% endcomment %}
+
+
+                 {% if category_info.category_image %}
+                 <a href="/media/{{ category_info.category_image }}" target="_blank">
+ 
+                 <img src="{{ category_info.category_image.url }}" class="me-3" alt="" />
+             {% endif %}
+             <a href="{% url 'category_detail' category_id=category_info.category.category_id %}">{{ category_info.category.category_name }}</a> </td>               
+                  <span>{{ category_info.category_name }}</span>
+                </td>
+                <td>{{ category_info.category_code }}</td>
+                <td>{{ category_info.category_descriptions }}</td>
+                <td>{{ category_info.available_quantity }}</td>
+           
+                <td>
+                  <button class="table-button">
+                        <a href="{% url 'category_edit' category_id=category_info.category.category_id %}">
+
+
+                      <img src="{% static 'images/edit.svg' %}" alt="edit"
+                    /></a>
+                  </button>
+                  <button class="table-button">
+
+
+                    
+                        <a href="{% url 'category_delete' category_id=category_info.category.category_id %}">
+
+                      <img
+                        src="{% static 'images/delete.svg' %}"
+                        alt="delete"
+                    /></a>
+                  </button>
+                </td>
+                <td style="display:none">{{category_info.category.category_id}}</td>
+              </tr>
+              {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<footer class="row mb-5">
+<div class="col-6 ps-5 align-self-start">
+  <span class="col-3 show1">show per page</span>
+  <select
+    id="rowsPerPageSelect"
+    class="text-center"
+    onchange="changeRowsPerPage()"
+  >
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+</div>
+<div class="d-inline col-6 text-end pe-5">
+  <span class="pageno">
+    <span id="rows" > </span> of <span id="total">13</span> items</span></span>
+  <div class="pagination d-inline text-end pe-5" id="pagination"></div>
+</div>
+</footer>
+
+{% comment %} <script src="{% static 'js/product/category.js' %}"></script> {% endcomment %}
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"
+></script>
+
+<!-- Your HTML template -->
+<script>
+    function calculateTotalRows(update) {
+        // Get all tables on the page
+        var tables = document.getElementsByTagName("table");
+      
+        // Initialize the total rows count
+        var totalRows = 0;
+      
+        // Iterate through each table
+        for (var i = 0; i < tables.length; i++) {
+          // Get all rows in the current table
+          var rows = tables[i].getElementsByTagName("tr");
+      
+          // Add the number of rows in the current table to the total
+          totalRows += rows.length;
+        }
+        if (update) {
+          document.getElementById("total").textContent = update;
+        }
+        // Update the content of the "total" span with the calculated totalRows
+        document.getElementById("total").textContent = totalRows - 1;
+      }
+      
+      // Call the function when the page is loaded
+      window.onload = calculateTotalRows;
+      //pagination------------
+      let rowsPerPage = 10;
+      
+      // Function to handle pagination
+      function showPage(pageNumber) {
+        const table = document.getElementById("myTable");
+        const spanRows = document.getElementById("rows");
+      
+        const rows = table.tBodies[0].rows;
+      
+        const startRow = (pageNumber - 1) * rowsPerPage + 1;
+        const endRow = Math.min(pageNumber * rowsPerPage, rows.length);
+      
+        for (let i = 0; i < rows.length; i++) {
+          rows[i].style.display = i >= startRow - 1 && i < endRow ? "" : "none";
+        }
+      
+        // Update the content of the "rows" span
+        spanRows.textContent = `${startRow} - ${endRow}`;
+      }
+      
+      function setupPagination() {
+        const table = document.getElementById("myTable");
+        const rows = table.tBodies[0].rows;
+        const paginationContainer = document.getElementById("pagination");
+        const spanRows = document.getElementById("rows");
+      
+        // If the total number of rows is less than or equal to 10, display all rows
+        if (rows.length <= rowsPerPage) {
+          for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+          }
+          spanRows.textContent = `1 - ${rows.length}`;
+          paginationContainer.innerHTML = ""; // Clear pagination buttons
+        } else {
+          // Calculate the number of pages and generate pagination buttons
+          const pageCount = Math.ceil(rows.length / rowsPerPage);
+      
+          for (let i = 1; i <= pageCount; i++) {
+            const button = document.createElement("button");
+            button.textContent = i;
+            button.addEventListener("click", function () {
+              showPage(i);
+            });
+            paginationContainer.appendChild(button);
+          }
+      
+          // Show the first page by default
+          showPage(1);
+        }
+      }
+      
+      // Function to change rows per page
+      function changeRowsPerPage() {
+        const rowsPerPageSelect = document.getElementById("rowsPerPageSelect");
+        rowsPerPage = parseInt(rowsPerPageSelect.value);
+      
+        // Re-setup pagination with the new number of rows per page
+        const paginationContainer = document.getElementById("pagination");
+        paginationContainer.innerHTML = "";
+        setupPagination();
+      }
+      
+      // Setup pagination on page load
+      window.addEventListener("load", setupPagination);
+      
+      //-------------- paginationends------------
+      
+      // ---------------search table data-----------
+      (function (document) {
+        "use strict";
+      
+        var TableFilter = (function (myArray) {
+          var search_input;
+      
+          function _onInputSearch(e) {
+            search_input = e.target;
+            var tables = document.getElementsByClassName(
+              search_input.getAttribute("data-table")
+            );
+            myArray.forEach.call(tables, function (table) {
+              myArray.forEach.call(table.tBodies, function (tbody) {
+                myArray.forEach.call(tbody.rows, function (row) {
+                  var text_content = row.textContent.toLowerCase();
+                  var search_val = search_input.value.toLowerCase();
+                  row.style.display =
+                    text_content.indexOf(search_val) > -1 ? "" : "none";
+                });
+              });
+            });
+          }
+      
+          return {
+            init: function () {
+              var inputs = document.getElementsByClassName("search-input");
+              myArray.forEach.call(inputs, function (input) {
+                input.oninput = _onInputSearch;
+              });
+            },
+          };
+        })(Array.prototype);
+      
+        document.addEventListener("readystatechange", function () {
+          if (document.readyState === "complete") {
+            TableFilter.init();
+          }
+        });
+      })(document);
+      
+      document.addEventListener("DOMContentLoaded", function (event) {
+        var checkboxes = document.getElementsByName("funnel[]"),
+          selectall = document.getElementById("selectall");
+      
+        for (var i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].addEventListener("change", function () {
+            //Conver to array
+            var inputList = Array.prototype.slice.call(checkboxes);
+      
+            //Set checked  property of selectall input
+            selectall.checked = inputList.every(function (c) {
+              return c.checked;
+            });
+          });
+        }
+      
+        selectall.addEventListener("change", function () {
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = selectall.checked;
+          }
+        });
+      });
+      
+      // delete   rows
+      function deleteSelectedRows() {
+        var checkboxes = document.querySelectorAll(
+          '#myTable tbody input[type="checkbox"]:checked'
+        );
+        console.log(checkboxes);
+        var tableBody = document.getElementById("tablebody");
+        var deletedRowsData = [];
+        if (checkboxes.length === 0) {
+          alert("please select any one");
+          return;
+        }
+        // Ask for confirmation before deleting
+        var isConfirmed = window.confirm(
+          "Are you sure you want to delete the selected rows?"
+        );
+      
+        if (!isConfirmed) {
+          return; // Do nothing if not confirmed
+        }
+      
+        checkboxes.forEach(function (checkbox) {
+          // Assuming each checkbox is in a row, so we get the parent row
+          var row = checkbox.closest("tr");
+          if (row.style.display !== "none") {
+            // Extract cell values from the row
+            var rowData = {
+              CategoryName: row.cells[1].innerText,
+              CategoryCode: row.cells[2].innerText,
+              Description: row.cells[3].innerText,
+              Quantity: row.cells[4].innerText,
+              Category_id: row.cells[6].innerText,
+            };
+      
+            // Add the rowData to the array for later logging
+            deletedRowsData.push(rowData);
+      
+            // Remove the row from the table body
+            tableBody.removeChild(row);
+          }
+        });
+       // console.log("Deleted Rows Data:", deletedRowsData);
+        calculateTotalRows(deletedRowsData.length);
+      
+        changeRowsPerPage();
+        console.log("Deleted Rows Data:", deletedRowsData);
+
+fetch('{% url "category_delete_multiple" %}', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}',
+    },
+    body: JSON.stringify({ category_ids: deletedRowsData }),
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Response from server:', data);
+})
+.catch(error => {
+    console.error('Error during fetch:', error);
+});
+
+        // Log the deleted rows' cell values to the console
+        //console.log("Deleted Rows Data:", deletedRowsData);
+      }
+      function selectAllRows() {
+        var checkboxes = document.querySelectorAll(
+          '#myTable tbody input[type="checkbox"]'
+        );
+        var selectAllCheckbox = document.getElementById("selectall");
+      
+        checkboxes.forEach(function (checkbox) {
+          checkbox.checked = selectAllCheckbox.checked;
+        });
+      }
+</script>
+
+
+
+</body>
+</html>

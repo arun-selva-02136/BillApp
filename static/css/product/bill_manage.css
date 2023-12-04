@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital,wght@1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Customer Deatails */
+.customer-info input {
+  border-bottom: 2px solid gray;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  outline: none;
+}
+
+/* Customer Deatails */
+
+/* Table Design */
+
+table {
+  margin: 30px auto;
+  border: 1px solid gray;
+}
+
+#table-container {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+table th {
+  border: 1px solid gray;
+  text-align: center;
+}
+
+table #table-body td {
+  border: 1px solid gray;
+  text-align: center;
+}
+
+table tfoot td {
+  border: 1px solid gray;
+  padding: 10px 10px;
+}
+
+
+table input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* Table Design */
+
+/* Popup Design */
+#productList {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.list-item {
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.list-item:hover {
+  background-color: #555;
+}
+
+.popup-details {
+  padding: 12px;
+  border-top: 1px solid #555;
+  font-size: 14px;
+  color: #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+/* Popup Design */
+#productNamePopup {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0,1.5);
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 30rem;
+  left: 15rem;
+  /* Set the width according to your design */
+}
+
+#productNameList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#productNameList li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#productNameList li:hover {
+  background-color: #f5f5f5;
+}
+
+#productNameList span {
+  margin-right: 5px;
+}
+
+.popup-details {
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Popup Design */

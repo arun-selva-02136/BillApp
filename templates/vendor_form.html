@@ -1,0 +1,98 @@
+{% comment %} <!-- create_vendor.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Vendor</title>
+</head>
+<body>
+
+<h2>Create Vendor</h2>
+
+<form method="post" action="{% url 'vendor_form' %}">
+    {% csrf_token %}
+
+    <!-- You can use input fields or any other form elements -->
+    <label for="name">Vendor Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="phone_num">Phone Number:</label>
+    <input type="text" id="phone_num" name="phone_num" required>
+    <br>
+
+    <label for="gst_num">GST Number:</label>
+    <input type="text" id="gst_num" name="gst_num" required>
+    <br>
+
+    <label for="invoice_num">Invoice Number:</label>
+    <input type="text" id="invoice_num" name="invoice_num" required>
+    <br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+    <br>
+
+    <input type="submit" value="Create Vendor">
+</form>
+
+</body>
+</html> {% endcomment %}
+<!-- create_vendor.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Vendor</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Create Vendor</h2>
+
+        <form method="post" action="{% url 'vendor_form' %}" class="col-md-6 mx-auto">
+            {% csrf_token %}
+
+            <!-- You can use input fields or any other form elements -->
+            <div class="form-group">
+                <label for="name">Vendor Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_num">Phone Number:</label>
+                <input type="text" id="phone_num" name="phone_num" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gst_num">GST Number:</label>
+                <input type="text" id="gst_num" name="gst_num" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="invoice_num">Invoice Number:</label>
+                <input type="text" id="invoice_num" name="invoice_num" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Vendor</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

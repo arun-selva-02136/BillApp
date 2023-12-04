@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital,wght@1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.home-wrapper{
+  margin: 10px auto;
+  height: auto;
+}
+.btn-outline{
+    width: 7rem;
+    height: 2rem;
+    border: 2px solid white;
+    background: transparent;
+    border-radius: 2rem;
+}
+.btn-white{
+    width: 7rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 2rem;
+}
+
+.btn-blue{
+    width: 7rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: blue;
+    border-radius: 2rem;
+}
+
+.navbar-nav{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   margin-left: 4rem;
+   animation: animate 2s 1;
+}
+
+.home-wrapper .heading h3{
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    position: relative;
+    margin-left: 5rem;
+    font-family: 'Poppins', sans-serif;
+    animation: animate 2s 1;
+}
+
+.home-wrapper form{
+    position: relative;
+    top: 4rem;
+    margin-left: 3rem;
+    padding-left: 2rem;
+    animation: animate 2s 1;
+}
+
+.home-wrapper form .button{
+    position: relative;
+    top: 2rem;
+    color: #4267b2;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 5rem;
+    width: 23rem;
+    border: 0;
+    outline: 0;
+    height: 3rem;
+    animation: animate 2s 1;
+}
+
+.home-wrapper .form-control{
+    background: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 0.8rem;
+}
+
+.home-wrapper .h6{
+    position: relative;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-wrapper .f-password a{
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    position: absolute;
+    left: 16rem;
+    margin-top: 0.2rem;
+    font-size: 15px;
+}
+
+.home-wrapper form .button:hover span{
+    width: 30px;
+}
+/* Image Container */
+.Img-container{
+    position: relative;
+    right: 5rem;
+}
+.Img-container img{
+  width: 73rem;
+  height: 36.7rem;
+  position: absolute;
+  right: -3rem;
+  z-index: -1;
+}
+/* Image Container */
+
+@keyframes animate {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

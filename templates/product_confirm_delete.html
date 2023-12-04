@@ -1,0 +1,63 @@
+
+<style>
+  /* Add these styles to your CSS file */
+
+  .confirmation-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .confirmation-container h2 {
+    color: #333;
+  }
+  
+  .confirmation-container p {
+    color: #555;
+  }
+  
+  .delete-button {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c9302c;
+  }
+  
+  .cancel-link {
+    color: #428bca;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .cancel-link:hover {
+    text-decoration: underline;
+  }
+  
+
+</style>
+
+
+{% block content %}
+  <div class="confirmation-container">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete {{ product.product_name }}?</p>
+    
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="delete-button">Yes, delete</button>
+    </form>
+
+    <a href="{% url 'product_list' %}" class="cancel-link">Cancel</a>
+  </div>
+{% endblock %}

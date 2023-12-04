@@ -1,0 +1,494 @@
+{% comment %} {% extends 'nav.html' %}
+
+{% block title%}Dashboard{%endblock%}
+{% block content %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.getElementById("user_logo").style.display = "none";
+            var logo = document.getElementById('nav_logo')
+            var logoText = document.getElementById('nav_title')
+            var img = document.getElementById("user_logo").getAttribute("src")
+            var title = document.getElementById("user_logo").getAttribute("alt")
+            //logo.src = img;
+            logoText.innerHTML = title;
+        });
+    </script>
+    <div class="container my-4" style="max-width: 90%;">
+        <img id="user_logo" src="/media/{{ logo1.png }}" alt="{{ company.name }}">
+        <!-- <img id="user_logo" src="/media/{{ company.logo }}" alt="{{ company.name }}"> -->
+        <h5 class="text-uppercase font-weight-lighter text-primary ml-3">Summary</h5>
+        <div class="row justify-content-center">
+            
+            <a class="navbar-brand" href="#">
+                 <a class="navbar-brand" href="{% url 'reports' %}"> 
+                <div class="card shadow my-4 mx-4" style="width: 20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-muted"> Total Customers  </h5>
+                        <h4 class="card-text text-primary font-weight-bold">{{ customer }}</h4>
+                         <h4 class="card-text text-primary font-weight-bold">{{ roles }}</h4> 
+                    </div>
+                </div>
+            </a>
+             {% comment %} <a class="navbar-brand" href="{% url 'reports' %}"> 
+                <a class="navbar-brand" href="#">
+                <div class="card shadow my-4 mx-4" style="width: 20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-muted">Total Purchases</h5>
+                        {% comment %} <h4 class="card-text text-        primary font-weight-bold">4</h4> 
+                         <h4 class="card-text text-primary font-weight-bold">{{ purchase_amount }}</h4>
+                    </div>
+                </div>
+            </a>
+             {% comment %} <a class="navbar-brand" href="{% url 'reports' %}"> 
+                <a class="navbar-brand" href="#">
+                <div class="card shadow my-4 mx-4" style="width: 20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-muted">Total Purchases Amount </h5>
+                        {% comment %} <h4 class="card-text text-primary font-weight-bold">4</h4> 
+                        <h4 class="card-text text-primary font-weight-bold">{{ available_purchases_amount }}</h4> 
+                    </div>
+                </div>
+            </a>
+             {% comment %} <a class="navbar-brand" href="{% url 'reports' %}">  
+                <a class="navbar-brand" href="#">
+                <div class="card shadow my-4 mx-4" style="width: 20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-muted">Total Quantity </h5>
+                        {% comment %} <h4 class="card-text text-primary font-weight-bold"> 5</h4> 
+                         <h4 class="card-text text-primary font-weight-bold">{{ available_total_quantity }}</h4> 
+                    </div>
+                </div>
+            
+            {% comment %} <a class="navbar-brand" href="{% url 'reports' %}"> 
+                <a class="navbar-brand" href="#">   
+                <div class="card shadow my-4 mx-4" style="width: 20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-muted">Total Suppliers</h5>
+                        <h4 class="card-text text-primary font-weight-bold"></h4>
+                        {% comment %} <h4 class="card-text text-primary font-weight-bold">4</h4> 
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+ {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    
+    <link rel="stylesheet" href="{% static "css/product/dashbord.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4723418bde.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-xxl">
+        <section class="Dashbord-wrapper-header">
+            <!-- card Row One -->
+            <div class="row">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Amount-Card">
+                        <div class="row" style="gap: 20px;">
+                            <div class="Shoping-icon"><i class="fa-solid fa-bag-shopping ms-1"
+                                    style="color: #ff9100;"></i>
+                            </div>
+                            <div class="col d-flex flex-column mt-1">
+                                <h4>₹ {{ purchase_amount }}</h4>
+                                <p>Total Purchase Due</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Amount-Card">
+                        <div class="row" style="gap: 20px;">
+                            <div class="Shoping-icon"><i class="fa-solid fa-money-bill-1" style="color: #0fa704;"></i>
+                            </div>
+                            <div class="col d-flex flex-column mt-1">
+                                <h4>₹ {{ available_purchases_amount }}</h4>
+                                <p>Total Purchase Due</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Amount-Card">
+                        <div class="row" style="gap: 20px;">
+                            <div class="Shoping-icon"><i class="fa-solid fa-arrow-down-short-wide"
+                                    style="color:#4cafcb;"></i>
+                            </div>
+                            <div class="col d-flex flex-column mt-1">
+                                <h4>₹ 45000</h4>
+                                <p>Total Salse Due</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Amount-Card">
+                        <div class="row" style="gap: 20px;">
+                            <div class="Shoping-icon"><i class="fa-solid fa-arrow-up-wide-short"
+                                    style="color: #ff2107;"></i>
+                            </div>
+                            <div class="col d-flex flex-column mt-1">
+                                <h4>₹ 45000</h4>
+                                <p>Total Salse Amount</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- card Row One -->
+
+            <!-- Card Row Two -->
+            <div class="row">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Customers-Card">
+                        <div class="row" style="gap: 30px;">
+                            <div class="col d-flex flex-column mt-1">
+                                <h1>{{ customer }}</h1>
+                                <h5>Customers</h5>
+                            </div>
+                            <div class="Customers-icon"><i class="fa-solid fa-user-group" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm-6 col-xl-3">
+                    <a style=" text-decoration: none;"  href={% url "vendor_list" %}>
+                    <div class="col Suppliers-Card">
+                        <div class="row" style="gap: 30px;">
+                            
+                            <div class="col d-flex flex-column mt-1">
+                                
+
+                                <h1>{{  vendor }}   </h1>
+
+                                <h5>Suppliers</h5>
+                                
+                            </div>
+                            <div class="Suppliers-icon"><i class="fa-solid fa-user-check" style="color: white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            
+                <div class="col-sm-6 col-xl-3">
+                    <a style=" text-decoration: none;"  href={% url "product_list" %}>
+                        {% comment %} <a style=" text-decoration: none;"  href='#'> {% endcomment %}
+                    <div class="col Purchase-Card">
+                        <div class="row" style="gap: 30px;">
+                            <div class="col d-flex flex-column mt-1">
+                                <h1></h1>
+                                <h5>Total Quantity</h5>
+                            </div>
+                            <div class="Purchase-icon"><i class="fa-solid fa-file" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="col Salse-Card">
+                        <div class="row" style="gap: 30px;">
+                            <div class="col d-flex flex-column mt-1">
+                                <h1>{{ available_total_quantity }}</h1>
+                                <h5>Quantity</h5>
+                            </div>
+                            <div class="Salse-icon"><i class="fa-solid fa-file-invoice" style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Row Two -->
+        </section>
+        <hr class="mt-5">
+        <!-- Chart Section -->
+        <div class="container-xxl">
+            <section class="Purchase-chart-wrapper">
+                <div class="row">
+                    <div class="col-sm-12 col-xl-8 Chart-Box">
+                        <header>
+                            <h5 class="mt-1">Purchase & Salse</h5>
+                            <div class="col color-span d-flex align-items-center justify-content-center">
+                                <span class="bg-success">&nbsp;</span>
+                                <h6>Salse</h6>
+                                <span class="bg-danger">&nbsp;</span>
+                                <h6>Purchase</h6>
+                            </div>
+                            <div class="col start-date">
+                                <h6 class="mt-2">Start Date</h6>
+                                <input type="date" id="startDate">
+                            </div>
+                            <div class="col end-date">
+                                <h6 class="mt-2">End Date</h6>
+                                <input type="date" id="endDate" oninput="updateChart()">
+                            </div>
+                        </header>
+                        <div class="col">
+                            <div class="col chart mt-3">
+                                <canvas id="barChart" width="900" height="370"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-3 Products-Box" style="margin-top:50px;">
+                        <header>
+                            <h6>Recently Added products</h6>
+                        </header>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">S.No</th>
+                                    <th colspan="2">Products</th>
+                                    <th colspan="2">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">1</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">3</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">4</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">5</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">6</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">7</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">8</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">9</th>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">₹ 45000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Chart Section -->
+        <div class="container-xxl">
+            <section class="Expired-Products-wrapper">
+                <div class="row">
+                    <div class="col-sm-12 col-xl-12 Expired-products">
+                        <header>
+                            <h6>Expired Products</h6>
+                        </header>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">S.No</th>
+                                        <th colspan="2">Products Code</th>
+                                        <th colspan="2">Products Name</th>
+                                        <th colspan="2">Brand Name</th>
+                                        <th colspan="2">Category Name</th>
+                                        <th colspan="2">Expired Date</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <th colspan="2">1</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">2</th>
+                                    <td colspan="2">A001</td>
+                                    <td colspan="2">Iphone</td>
+                                    <td colspan="2">NA</td>
+                                    <td colspan="2">Electronics</td>
+                                    <td colspan="2">12-12-2022</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+
+        let barChart;  // Declare a variable to store the Chart instance
+
+// Sample data for all months
+const allMonthsData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Act', 'Nov', 'Dec'],
+    sales: {{ nume_val|safe }},
+    purchase: {{ pro_val|safe }},
+};
+
+console.log(allMonthsData.sales)
+
+// Function to filter data based on the selected date range
+function filterDataByDateRange(data, startDate, endDate) {
+    const startMonth = startDate.getMonth();
+    const endMonth = endDate.getMonth();
+
+    const filteredData = {
+        labels: data.labels.slice(startMonth, endMonth + 1),
+        sales: data.sales.slice(startMonth, endMonth + 1),
+        purchase: data.purchase.slice(startMonth, endMonth + 1),
+    };
+
+    return filteredData;
+}
+
+// Function to update the chart with new data
+function updateChart() {
+    // Destroy the existing chart instance if it exists
+    if (barChart) {
+        barChart.destroy();
+    }
+
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
+
+    // Filter data based on the selected date range
+    const filteredData = filterDataByDateRange(allMonthsData, startDate, endDate);
+
+    const ctx = document.getElementById('barChart').getContext('2d');
+    barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: filteredData.labels,
+            datasets: [
+                {
+                    label: 'Sales',
+                    data: filteredData.sales,
+                    backgroundColor: 'rgb(15,167,4)',
+                    borderWidth: 1,
+                    borderRadius: 20,
+                },
+                {
+                    label: 'Purchase',
+                    data: filteredData.purchase,
+                    backgroundColor: 'rgb(255,33,7)',
+                    borderWidth: 1,
+                    borderRadius: 20,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                            return Math.abs(value);
+                        }
+                    }
+                }],
+                xAxes: [{
+                    stacked: false,
+                }]
+            }
+        }
+    });
+}
+
+// Initial chart rendering
+updateChart();
+
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!--<script src={% static "js/product/dashbord.js" %}></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% comment %} 
+{% block content %}
+  <h2>Vendor List</h2>
+  <ul>
+    {% for vendor in vendor_list %}
+      <li>vendor_name = {{ vendor.name }} and vendor_id = {{ vendor.vendor_id }} </li>
+    {% endfor %}
+  </ul>
+{% endblock %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor List</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .create-link {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vendors List</h1>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Vendor ID</th>
+                <th>Vendor Name</th>
+                <th>Phone Number</th>
+                <th>GST Number</th>
+                <th>Invoice Number</th>
+                <th>Address</th>
+                <th>Vendor Created</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendor in vendor_list %}
+                <tr>
+                    <td><a href="#">{{ vendor.vendor_id}}</a></td>
+                    <td>{{ vendor.vendor_name }}</td>
+                    <td>{{ vendor.phone_num }}</td>
+                    <td>{{ vendor.gst_num }}</td>
+                    <td>{{ vendor.invoice_num }}</td>
+                    <td>{{ vendor.address }}</td>
+                    <td>{{ vendor.vendor_created }}</td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'vendor_form' %}" class="create-link">Create a New Vendor</a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

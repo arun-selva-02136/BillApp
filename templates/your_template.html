@@ -1,0 +1,295 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Plot Page</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<!-- Display the initial plot -->
+{{ html_plot | safe }}
+
+<!-- Dropdowns for month and year -->
+{{ month_dropdown }}
+{{ year_dropdown }}
+
+<script>
+    // Function to update the plot using AJAX
+    function updatePlot() {
+        var selectedMonth = $("#id_month").val();
+        var selectedYear = $("#id_year").val();
+
+        // AJAX request to get the updated plot HTML
+        $.ajax({
+            type: 'GET',
+            url: '/your-app/plot-view/',  // Update with the actual URL of your view
+            data: {
+                'month': selectedMonth,
+                'year': selectedYear
+            },
+            success: function (data) {
+                // Update the plot container with the new HTML
+                $("#plot-container").html(data.html_plot);
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    // Bind the updatePlot function to the change event of the dropdowns
+    $("#id_month, #id_year").change(function () {
+        updatePlot();
+    });
+
+    // Trigger the initial plot update when the page loads
+    $(document).ready(function () {
+        updatePlot();
+    });
+</script>
+
+</body>
+</html> {% endcomment %}
+<!-- yourapp/templates/your_template.html -->
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Donut Chart</title>
+</head>
+<body>
+    {{ year_dropdown }}
+    {{month_dropdown}}
+    {{ html_plot }}
+</body>
+</html> {% endcomment %}
+<!-- yourapp/templates/yourapp/your_template.html -->
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Plot View</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Donut Chart</h2>
+        <div id="plot-container">
+            {{ html_plot | safe }}
+        </div>
+        <div>
+            {{ year_dropdown }}
+            {{ month_dropdown }}
+        </div>
+    </div> {% endcomment %}
+{% comment %} 
+    <script>
+        // Function to update the plot dynamically
+        function updatePlot() {
+            var selectedYear = $('#id_year').val();
+            var selectedMonth = $('#id_month').val();
+
+            // Make an asynchronous request to update the plot
+            $.ajax({
+                url: '/plotview/',  // Update with your actual URL
+                type: 'GET',
+                data: {
+                    year: selectedYear,
+                    month: selectedMonth
+                },
+                success: function(response) {
+                    // Update the plot container with the new HTML
+                    $('#plot-container').html(response.html_plot);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        }
+
+        // Bind the updatePlot function to the change event of the dropdowns
+        $('#id_year, #id_month').change(function() {
+            updatePlot();
+        });
+    </script>
+</body>
+</html> {% endcomment %}
+<!-- yourapp/templates/your_template.html -->
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Plot View</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Donut Chart</h2>
+        <div id="plot-container">
+            {{ html_plot|safe }}
+        </div>
+        <div>
+            Dropdown(description='Month:', options=('April', 'February', 'June', 'August', 'July', 'November', 'January', 'September', 'October', 'March', 'May', 'December'), value='April')
+        </div>
+    </div>
+
+<script>
+    // Function to update the plot dynamically
+    function updatePlot() {
+        var selectedYear = $('#id_year').val();
+        var selectedMonth = $('#id_month').val();
+
+        // Make an asynchronous request to update the plot
+        $.ajax({
+            url: '/plotview/',  // Update with your actual URL
+            type: 'GET',
+            data: {
+                year: selectedYear,
+                month: selectedMonth
+            },
+            success: function(response) {
+                // Update the plot container with the new HTML
+                $('#plot-container').html(response.html_plot);
+            },
+            error: function(error) {
+                console.log('Error:', error);
+            }
+        });
+    }
+
+    // Bind the updatePlot function to the change event of the dropdowns
+    $(document).ready(function() {
+        $('#id_year, #id_month').change(function() {
+            updatePlot();
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+</body>
+</html> {% endcomment %}
+<!-- your_template.html -->
+{% comment %} <label for="product_name">Product Name:</label>
+<input type="text" id="product_name" name="product_name" oninput="fetchData()">
+
+<div id="result">
+    <!-- Display fetched data here -->
+</div>
+
+<script>
+    function fetchData() {
+        var productName = document.getElementById('product_name').value;
+
+        // Make an AJAX request to your Django view
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Parse the JSON response
+                    var responseData = JSON.parse(xhr.responseText);
+
+                    // Update the 'result' div with the fetched data
+                    var resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = '';
+
+                    if (responseData.error) {
+                        resultDiv.innerHTML = 'Error: ' + responseData.error;
+                    } else {
+                        // Display the fetched data
+                        responseData.data.forEach(function (item) {
+                            resultDiv.innerHTML += 'Product Name: ' + item.product_name +
+                                ', Quantity: ' + item.qty +
+                                ', Amount: ' + item.amount + '<br>';
+                        });
+                    }
+                } else {
+                    console.error('Error fetching data:', xhr.statusText);
+                }
+            }
+        };
+
+        // Adjust the URL to match your Django view
+        var url = '/get_product_data/' + encodeURIComponent(productName) + '/';
+        xhr.open('GET', url, true);
+        xhr.send();
+    }
+</script> {% endcomment %}
+<input type="text" id="product-name-input" placeholder="Enter product name">
+<button id="search-btn">Search</button>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{% comment %} 
+<script>
+    $(document).ready(function () {
+        $('#search-btn').click(function () {
+            var productName = $('#product-name-input').val();
+
+            // Make an AJAX request to the server with the dynamic product name
+            $.ajax({
+                method: 'GET',
+                url: '/get_related_products/',
+                data: { 'product_name': productName },
+                success: function (data) {
+                    console.log(data);
+                    // Add your UI update logic here
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+            
+            });
+        });
+
+    </script> {% endcomment %}
+    {% comment %} $(document).ready(function () {
+        $('#search-btn').click(function () {
+            var productName = $('#product-name-input').val();
+    
+            // Make an AJAX request to the server with the dynamic product name
+            $.ajax({
+                method: 'POST',  // Use POST method
+                url: '/get_related_products/',
+                data: { 'product_name': productName },
+                success: function (data) {
+                    console.log(data);
+                    // Add your UI update logic here
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    }); {% endcomment %}
+<html>
+
+    <input type="text" id="product-name-input" placeholder="Enter product name">
+    <button id="search-btn">Search</button>
+    
+    // JavaScript code
+$(document).ready(function () {
+    $('#search-btn').click(function () {
+        var productName = $('#product-name-input').val();
+
+        // Make an AJAX request to the server with the dynamic product name
+        $.ajax({
+            method: 'POST',  // Ensure you're using the POST method
+            url: '/get_related_products/',
+            data: { 'product_name': productName },
+            success: function (data) {
+                console.log(data);
+                // Add your UI update logic here
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+});

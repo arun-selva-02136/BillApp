@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital,wght@1,300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Profile-box{
+    position: relative;
+    margin: 10px auto;
+    height: 33rem;
+}
+.user-profile{
+    margin: 10px auto;
+    height: auto;
+    border: 1px solid gray;
+}
+.logo-header {
+    position: relative;
+    background-color: #4267b2;
+    border-bottom: 5px solid #d9e1f0;
+}
+.logo-header .logo-img{
+    position: relative;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-header .logo-img img{
+    position: relative;
+}
+
+.user-profile .edit-btn{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    font-size: 20px;
+}
+.user-profile .edit-btn i{
+    position: relative;
+    right: 2rem;
+    bottom: 1rem;
+}
+/* User Infromations */
+
+.User-info{
+    position: relative;
+    margin: 10px auto;
+}
+.User-info .user-img{
+  position: relative;
+}
+.user-img .Profile-img{
+    background-color: gray;
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+    border-radius: 5rem;
+    border: 7px solid white;
+    left: 4rem;
+    bottom: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+}
+.Profile-add{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+/* User Infromations */
+
+/*Prifile Form  */
+.Profile-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Profile-form form{
+    margin: 5px auto;
+    position: relative;
+    left: 4rem;
+}
+.Profile-form form input{
+    border: 2px solid gray;
+}
+/*Prifile Form  */
+
+/* Profile image uploader */
+#file{
+    display: none;
+}
+#uploadBtn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 6rem;
+    left: 0.3rem;
+    font-size: 30px;
+}
+#photo{
+    position: absolute;
+    /* left: 0.5rem; */
+    width: 150px;
+    height: 150px;
+    border: 50%;
+}
+
+/* Profile image uploader */
+

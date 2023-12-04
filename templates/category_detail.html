@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <style>
+        
+        <!-- product_detail.html -->
+        {% comment %} {% extends 'base.html' %} {% endcomment %}
+        <style>
+        
+          /* styles.css */
+          body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+          }
+          
+          .product-details {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .product-details h2 {
+            color: #3498db;
+          }
+          
+          .product-details p {
+            margin: 10px 0;
+          }
+          
+          .back-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+          }
+          
+          .back-link:hover {
+            background-color: #2980b9;
+          }
+        
+    
+    
+    
+    </style>
+    <title>{{ category.category_name }} Details</title>
+</head>
+
+
+
+
+
+
+  <div class="product-details">
+    <h2>{{ category.category_name }} Details</h2>
+    <p><strong>Products:</strong> {{ category.category_name }}</p>
+    <p><strong>Code:</strong> {{ category.category_code }}</p>
+    <p><strong>Description:</strong> {{ category.category_description }}</p>
+    <p><strong>Created:</strong> {{ category.category_created }}</p>
+    
+    <a href="{% url 'product_list' %}" class="back-link">Back to Product List</a>
+  </div>
+
+
+
+</html>
