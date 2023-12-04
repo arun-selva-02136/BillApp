@@ -1,8 +1,13 @@
 # BillApp
 
+## DATABASE
+- First you need to create a database on your local host or server using this name **bills_system**
+  ```
+  create database bills_system; # Only this name should be used in the database
+
 ## Dockerfile
 
-If you create a dackerfile, change the variable values first
+If you create a Docker image, change the variable values on **Dockerfile** first
 
 - Database UserName
   ```
